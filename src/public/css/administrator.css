@@ -1,0 +1,58 @@
+.screen__title {
+  margin-left: 60px;
+  color: rgb(55, 55, 55);
+  font-size: 20px;
+}
+
+
+
+.registration {
+    width:400px;
+    height: auto;
+    margin: 100px auto;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px rgb(169, 168, 168);;
+}
+
+.registration__title {
+    background-color: rgb(66, 90, 249);
+    border-radius: 5px 5px 0 0;
+    color:white;
+    font-size: 15px;
+    padding:17px;
+    text-align: center;
+}
+
+.form__input {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form__input-text input {
+    border: none;
+    border-bottom: solid rgb(217, 214, 214);
+    width: 70%;
+    padding-top: 10px;
+
+}
+
+.form__error {
+    font-size: 12px;
+}
+
+.registration__btn {
+    text-align: end;
+    margin: 20px 10% 0 0;
+    padding-bottom: 20px;
+ 
+}
+
+.registration__btn-content {
+    font-size: 13px;
+    padding: 5px 13px;
+    border: none;
+    background-color:rgb(66, 90, 249) ;
+    border-radius: 3px;
+    color: white;
+}

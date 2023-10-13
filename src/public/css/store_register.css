@@ -1,0 +1,38 @@
+.title {
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
+.register {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.store__form {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+.area__register {
+    margin-left: 10px;
+}
+
+.confirm__btn {
+    margin: 15px 0px 20px 15px;
+    padding: 3px;
+    width:10%;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    background: rgb(70, 70, 250);
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.area-genre__register {
+    position:relative;
+
+}

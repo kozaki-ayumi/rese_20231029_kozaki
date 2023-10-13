@@ -1,0 +1,95 @@
+.search__bar {
+    position:absolute;
+    top: 30px;
+    right:5%;
+    width:50%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 2px rgb(169, 168, 168);
+}
+
+.area {
+    border: none;
+    padding: 4px 10px 4px 4px;
+    width:25%;
+}
+
+.genre {
+    border: none;
+    border-left: solid #d0cdcd ;
+    border-right: solid #d0cdcd;
+    padding: 4px 20px 4px 4px;
+    width: 25%;
+    font-size: 12px;
+}
+
+.search__keyword {
+    border: none;
+    width: 40%;
+    padding: 4px;
+}
+
+.search__btn {
+    border: none;
+    background-color:white ;
+    font-size: 15px;
+}
+
+.shop__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px 5%;
+    
+}
+
+.shop__card {
+    width:270px;
+    margin: 10px 5px;
+    background-color: white;
+    border-radius: 0px 0px 7px 7px;
+    box-shadow: 3px 3px 2px rgb(169, 168, 168);
+}
+
+.img {
+    width: 100%;
+    border-radius: 7px 7px 0px 0px;
+}
+
+.shop__name {
+    font-size: 16px;
+    margin: 10px 10px 3px 15px;
+    font-weight: bold;
+}
+
+.area__genre{
+    font-size: 11px;
+    padding-left: 15px;
+
+}
+
+.btn__heart {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.detail__btn {
+    margin: 15px 0px 20px 15px;
+    padding: 3px;
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    background: rgb(70, 70, 250);
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+}
+        
+.bookmark__heart {
+    font-size: 30px;
+    border: none;
+    background-color: white;
+    padding: 10px 40px 0 0;
+}

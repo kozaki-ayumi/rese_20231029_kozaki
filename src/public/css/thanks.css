@@ -1,0 +1,29 @@
+.thanks {
+    width: 45%;
+    height: auto;
+    margin: 100px auto;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px rgb(169, 168, 168);
+    text-align: center;
+}
+
+.thanks__comment {
+    padding-top: 80px;
+    font-size: 20px;
+}
+
+
+.btn {
+    padding:30px 0 80px 0;
+
+}
+
+.btn-content {
+    font-size: 13px;
+    padding: 5px 13px;
+    border: none;
+    background-color: rgb(66, 90, 249);
+    border-radius: 3px;
+    color: white;
+}

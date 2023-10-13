@@ -1,0 +1,40 @@
+body {
+    background-color: rgb(240, 238, 238);
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    margin: 30px 0 0 50px;
+    position:relative;
+}
+
+.menu__btn {
+    width: 30px;
+    height: 30px;
+    padding-left: 8px;
+    border: none;
+    background-color: rgb(66, 90, 249);
+    border-radius: 3px;
+    box-shadow: 3px 3px 2px rgb(169, 168, 168);
+    margin-top: 6px;
+
+}
+
+.menu__btn-bar--2 {
+    margin-top: -3px;
+    margin-bottom: -3px;
+    color: white;
+}
+
+.menu__btn-bar {
+    color: white;
+}
+
+.rese {
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 15px;
+    color: rgb(66, 90, 249);
+}
+
