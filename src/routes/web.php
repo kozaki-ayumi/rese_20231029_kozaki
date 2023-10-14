@@ -7,6 +7,12 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\ReviewController;
+
+use App\Http\Controllers\AdminManagementController;
+use App\Http\Controllers\ManagerManagementController;
+use App\Http\Controllers\ManagerShopPageController;
+use App\Http\Controllers\TestMailController;
+
 use App\Http\Controllers\ManagerMenuController;
 use App\Http\Controllers\ProfileController as ProfileOfAdminController;
 
@@ -39,12 +45,43 @@ Route::get('/mypage', [MenuController::class, 'myPageIndex']);
 
 Route::get('/manager/menu', [MenuController::class, 'index3']);
 
-Route::get('/manager/reservation/management', [ManagerMenuController::class, 'reservationIndex']);
-Route::get('/manager/shoppage/update', [ManagerMenuController::class, 'shopPageUpdateIndex']);
-Route::get('/manager/shoppage/create', [ManagerMenuController::class, 'shopPageCreateIndex']);
+
+
 
 Route::post('/shops/{shop}/bookmark', [BookmarkController::class, 'store'])->name('bookmark.store');
 Route::delete('/shopss/{shop}/unbookmark', [BookmarkController::class, 'destroy'])->name('bookmark.destroy');
+
+Route::get('/admin/manager/register', [AdminManagementController::class, 'index']);
+Route::post('/admin/manager/register/confirm', [AdminManagementController::class, 'create']);
+
+
+Route::get('/manager/mail/draft', [ManagerManagementController::class, 'mailIndex']);
+
+Route::get('/manager/reservationlist', [ManagerManagementController::class, 'reservationListIndex']);
+Route::post('/manager/reservation/search', [ManagerManagementController::class, 'search']);
+
+Route::get('/manager/shoppage', [ManagerShopPageController::class, 'shopListIndex']);
+Route::get('/manager/shop/draft', [ManagerShopPageController::class, 'shopRegisterIndex']);
+Route::get('/manager/shop/{shop}', [ManagerShopPageController::class, 'shopModify']);
+
+Route::post('/manager/shop/confirm', [ManagerShopPageController::class, 'updateConfirm']);
+Route::post('/manager/shop/update', [ManagerShopPageController::class, 'update']);
+
+Route::post('/manager/shop/register/confirm', [ManagerShopPageController::class, 'registerConfirm']);
+Route::post('/manager/shop/register', [ManagerShopPageController::class, 'create']);
+
+
+Route::get('/mail/send', [TestMailController::class, 'send']);
+
+Route::get('/top', 'App\Http\Controllers\ManagerManagementController@index');
+
+
+
+
+
+
+
+
 
 
 Route::get('/dashboard', function () {

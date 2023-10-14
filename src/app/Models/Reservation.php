@@ -16,9 +16,14 @@ class Reservation extends Model
         'num_of_users'
     ];
 
-     public function shop()
+    public function user()
     {
-     return $this->belongsTo(Shop::class);
+     return $this->belongsTo('App\Models\User');
+    }
+
+    public function shop()
+    {
+     return $this->belongsTo('App\Models\Shop');
     }
 
     public function review(){

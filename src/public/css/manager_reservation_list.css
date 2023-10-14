@@ -1,0 +1,55 @@
+.search__bar {
+    display: flex;
+    flex-direction: row;
+    margin: 50px 50px 0 40px;
+    padding: 20px 0 20px 10px;
+    font-size: 18px;
+    border: 1px solid;
+    border-radius: 5px;
+    
+    
+}
+
+.select__shop {
+    font-size: 18px;
+    border: none;
+    background-color: rgb(240, 238, 238);
+}
+
+.date {
+    padding-left: 80px;
+}
+
+.select__date {
+    font-size: 15px;
+    border: none;
+    background-color: rgb(240, 238, 238);
+}
+
+
+.search__btn-content {
+    margin-left:80px;
+    padding: 3px;
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    background: rgb(70, 70, 250);
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.reservation__table {
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 50px;
+
+}
+
+.table,th,td {
+    border-top: 1px solid black;
+}
+
+

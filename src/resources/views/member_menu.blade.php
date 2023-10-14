@@ -37,7 +37,7 @@
 
             @can('adminAccess')
              <div>
-               <form action="/mypage" method="get"> 
+               <form action="/admin/manager/register" method="get"> 
                 @csrf
                <button class="menu__tag-admin">店舗管理者登録</button>
                </form>
@@ -46,19 +46,19 @@
 
             @can('managerAccess')
              <div>
-               <form action="/mypage" method="get"> 
+               <form action="/manager/reservationlist" method="get"> 
                 @csrf
                <button class="menu__tag-admin">予約情報確認</button>
                </form>
             </div>
              <div>
-               <form action="/mypage" method="get"> 
+               <form action="/manager/shoppage" method="get"> 
                 @csrf
                <button class="menu__tag-admin">店舗情報更新</button>
                </form>
             </div>
              <div>
-               <form action="/mypage" method="get"> 
+               <form action="/manager/shop/draft" method="get"> 
                 @csrf
                <button class="menu__tag-admin">店舗情報新規作成</button>
                </form>

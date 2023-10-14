@@ -1,0 +1,69 @@
+.list__title {
+    margin: 20px 0 0 50px;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.detail__reservation {
+    display:flex;
+    flex-direction: row;
+
+}
+
+.shop__detail {
+    width: 45%;
+    margin: 30px 10px 0 50px;
+}
+
+.shop__title {
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+}
+
+
+
+.shop__name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.img {
+    width: 90%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.area__genre {
+    margin: 20px 0;
+    font-size: 12px;
+}
+
+.shop__text {
+    font-size: 12px;
+    width: 90%;
+}
+
+
+
+.btn__content {
+    margin-left: px;
+    padding: 3px;
+    width: 20%;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    background: rgb(70, 70, 250);
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
