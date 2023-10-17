@@ -34,16 +34,15 @@
                <button class="menu__tag">Mypage</button>
                </form>
             </div>
-
-            @can('adminAccess')
-             <div>
-               <form action="/admin/manager/register" method="get"> 
+             @can('adminAccess')
+            <div>
+               <form action="/manager/register" method="get"> 
                 @csrf
                <button class="menu__tag-admin">店舗管理者登録</button>
                </form>
             </div>
             @endcan
-
+ 
             @can('managerAccess')
              <div>
                <form action="/manager/reservationlist" method="get"> 
@@ -54,18 +53,14 @@
              <div>
                <form action="/manager/shoppage" method="get"> 
                 @csrf
-               <button class="menu__tag-admin">店舗情報更新</button>
+               <button class="menu__tag-admin">店舗情報登録/更新</button>
                </form>
             </div>
-             <div>
-               <form action="/manager/shop/draft" method="get"> 
-                @csrf
-               <button class="menu__tag-admin">店舗情報新規作成</button>
-               </form>
-            </div>
+             
             @endcan
 
         </div>    
-    </menu>     
+    </menu> 
+    
 </body>
 </html>

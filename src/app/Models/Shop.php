@@ -46,4 +46,17 @@ class Shop extends Model
         ];
         return view('shops.bookmarks', $data);
     }
+
+     public function management(){
+    return $this->hasMany('App\Models\Mangement');
+    }
+
+    public function management_shops()
+    {
+        $articles2 = \Auth::user()->management_shops()->get();
+        $data2 = [
+            'shops' => $shops,
+        ];
+        return view('shops.bookmarks', $data2);
+    }
 }

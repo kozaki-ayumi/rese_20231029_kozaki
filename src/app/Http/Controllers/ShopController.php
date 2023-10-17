@@ -83,6 +83,7 @@ class ShopController extends Controller
 
     public function detail(Shop $shop)
     {
+
      $data = [
       'item' => $shop,
       'id' => Auth::id(),
@@ -90,6 +91,15 @@ class ShopController extends Controller
      ];
 
       return view('shop_detail',$data);
+    }
+
+    public function bookmark_shops() 
+    {
+        $articles = \Auth::user()->bookmark_shops()->get();
+        $data = [
+            'shops' => $shops,
+        ];
+        return view('shops.bookmarks', $data);
     }
 }
 

@@ -10,7 +10,9 @@ use App\Http\Controllers\ReviewController;
 
 use App\Http\Controllers\AdminManagementController;
 use App\Http\Controllers\ManagerManagementController;
-use App\Http\Controllers\ManagerShopPageController;
+use App\Http\Controllers\ManagerAreaGenreController;
+use App\Http\Controllers\ManagerShopPageUpdateController;
+use App\Http\Controllers\ManagerShopPageCreateController;
 use App\Http\Controllers\TestMailController;
 
 use App\Http\Controllers\ManagerMenuController;
@@ -28,56 +30,77 @@ use App\Http\Controllers\ProfileController as ProfileOfAdminController;
 |
 */
 
+
+//Route::middleware(['verified'])->group(function(){
+ // Route::get('/', [ShopController::class, 'index']);
+//});
+
 Route::get('/', [ShopController::class, 'index']);
 Route::post('/shop/search', [ShopController::class, 'search']);
 Route::get('/shop/{shop}', [ShopController::class, 'detail']);
 
-Route::post('/reservation/completion', [ReservationController::class, 'store']);
-Route::post('/reservation/delete', [ReservationController::class, 'delete']);
-Route::patch('/reservation/change', [ReservationController::class, 'update']);
-
-
 Route::get('/guest/menu', [MenuController::class, 'index']);
 Route::get('/register', [MenuController::class, 'register']);
 
-Route::get('/member/menu', [MenuController::class, 'index2']);
-Route::get('/mypage', [MenuController::class, 'myPageIndex']);
 
-Route::get('/manager/menu', [MenuController::class, 'index3']);
+Route::group(['middleware' => 'verified'], function() {
+  Route::get('/register/thanks', [MenuController::class, 'thanksIndex']);
+  Route::get('/member/menu', [MenuController::class, 'index2']);
+  Route::get('/mypage', [MenuController::class, 'myPageIndex']);
+
+  Route::post('/reservation/completion', [ReservationController::class, 'store']);
+  Route::post('/reservation/delete', [ReservationController::class, 'delete']);
+  Route::patch('/reservation/change', [ReservationController::class, 'update']);
+
+  Route::post('/review', [ReviewController::class, 'store']);
+
+  Route::post('/shops/{shop}/bookmark', [BookmarkController::class, 'store'])->name('bookmark.store');
+  Route::delete('/shopss/{shop}/unbookmark', [BookmarkController::class, 'destroy'])->name('bookmark.destroy');
+});
 
 
+Route::group(['middleware' => ['role:admin']], function(){
+  Route::get('/manager/register', [AdminManagementController::class, 'index']);
+  Route::post('/manager/register/confirm', [AdminManagementController::class, 'create']);
+});
 
 
-Route::post('/shops/{shop}/bookmark', [BookmarkController::class, 'store'])->name('bookmark.store');
-Route::delete('/shopss/{shop}/unbookmark', [BookmarkController::class, 'destroy'])->name('bookmark.destroy');
+Route::group(['middleware' => ['role:manager']], function(){
+  Route::get('/manager/reservationlist', [ManagerManagementController::class, 'reservationListIndex']);
+  Route::post('/manager/reservation/search', [ManagerManagementController::class, 'search']);
 
-Route::get('/admin/manager/register', [AdminManagementController::class, 'index']);
-Route::post('/admin/manager/register/confirm', [AdminManagementController::class, 'create']);
+  
+  Route::get('/manager/shoppage', [ManagerShopPageUpdateController::class, 'shopPageIndex']);
+  
+  Route::get('/manager/shop/areagenre', [ManagerAreaGenreController::class, 'areaGenreIndex']);
+  
+  Route::post('/manager/area/register', [ManagerAreaGenreController::class, 'areaStore']);
+  Route::post('/manager/genre/register', [ManagerAreaGenreController::class, 'genreStore']);
+  Route::delete('/manager/area/delete', [ManagerAreaGenreController::class, 'areaDelete']);
+  Route::delete('/manager/genre/delete', [ManagerAreaGenreController::class, 'genreDelete']);
+
+  Route::get('/manager/shop/list', [ManagerShopPageUpdateController::class, 'shopListIndex']);
+
+  Route::get('/manager/shop/draft', [ManagerShopPageCreateController::class, 'shopRegisterIndex'])->name("form.register");
+
+  Route::get('/manager/shop/{shop}', [ManagerShopPageUpdateController::class, 'shopModify']);
+  
 
 
-Route::get('/manager/mail/draft', [ManagerManagementController::class, 'mailIndex']);
+  Route::post('/manager/shop/confirm', [ManagerShopPageUpdateController::class, 'updateConfirm']);
+  Route::post('/manager/shop/update', [ManagerShopPageUpdateController::class, 'update']);
 
-Route::get('/manager/reservationlist', [ManagerManagementController::class, 'reservationListIndex']);
-Route::post('/manager/reservation/search', [ManagerManagementController::class, 'search']);
+  
 
-Route::get('/manager/shoppage', [ManagerShopPageController::class, 'shopListIndex']);
-Route::get('/manager/shop/draft', [ManagerShopPageController::class, 'shopRegisterIndex']);
-Route::get('/manager/shop/{shop}', [ManagerShopPageController::class, 'shopModify']);
+  Route::post('/manager/shop/register/confirm', [ManagerShopPageCreateController::class, 'registerConfirm']);
+  Route::post('/manager/shop/register', [ManagerShopPageCreateController::class, 'create']);
 
-Route::post('/manager/shop/confirm', [ManagerShopPageController::class, 'updateConfirm']);
-Route::post('/manager/shop/update', [ManagerShopPageController::class, 'update']);
+  Route::get('/manager/mail/draft', [ManagerManagementController::class, 'mailIndex']);
 
-Route::post('/manager/shop/register/confirm', [ManagerShopPageController::class, 'registerConfirm']);
-Route::post('/manager/shop/register', [ManagerShopPageController::class, 'create']);
+});
 
 
 Route::get('/mail/send', [TestMailController::class, 'send']);
-
-Route::get('/top', 'App\Http\Controllers\ManagerManagementController@index');
-
-
-
-
 
 
 
@@ -85,16 +108,24 @@ Route::get('/top', 'App\Http\Controllers\ManagerManagementController@index');
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+  return view('register_thanks');
 })->middleware(['auth','verified'])->name('dashboard');
+
+
+
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
 
-Route::prefix('admin')->name('admin.')->group(function(){
-    Route::get('/menu', function () {
-        return view('admin_menu');
-    })->middleware(['auth:admin'])->name('dashboard');
+//Route::prefix('admin')->name('admin.')->group(function(){
+    //Route::get('/menu', function () {
+       // return view('admin_menu');
+   // })->middleware(['auth:admin'])->name('dashboard');
 
     //Route::middleware('auth:admin')->group(function () {
       //  Route::get('/profile', [ProfileOfAdminController::class, 'edit'])->name('profile.edit');
@@ -102,8 +133,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
        // Route::delete('/profile', [ProfileOfAdminController::class, 'destroy'])->name('profile.destroy');
     //});
 
-    require __DIR__.'/admin.php';
-    });
+    //require __DIR__.'/admin.php';
+    //});
 
 
 

@@ -26,6 +26,12 @@ class MenuController extends Controller
         return view('auth/register');
     }
 
+    public function thanksIndex()
+    {
+        return view('register_thanks');
+    }
+
+
     public function login()
     {
         return view('auth/login');
@@ -54,4 +60,5 @@ class MenuController extends Controller
     $shops = $user->bookmark_shops()->get();
     return view('my_page',compact('user','reservations','reservationPasts','shops','today'));
    }
+
 }

@@ -1,0 +1,10 @@
+{
+    "Whoops! Something went wrong.":"エラーです。",
+    "Hello!": "お知らせ",
+    "Please click the button below to verify your email address.":"ボタンをクリックして、登録されたメールアドレスを確認してください。",
+    "If you did not create an account, no further action is required.":"このメールの内容に覚えがない場合は、このまま破棄してください。",
+    "Regards,":"どうぞ、よろしくお願い致します",
+    "If you're having trouble clicking the \"Verify Email Address\" button, copy and paste the URL below into your web browser":"ボタンをクリックできない場合は, こちらのURLをコピーしてブラウザに貼り付けてください",
+    "Verify Email Address" : "メール認証"
+
+}

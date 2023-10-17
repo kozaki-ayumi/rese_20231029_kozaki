@@ -1,49 +1,67 @@
 @extends('layouts.title')
 
 @section('css')
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-<link rel="stylesheet" href="{{ asset('css/common.css') }}">
-<link rel="stylesheet" href="{{ asset('css/reservation_list.css') }}">
+<link rel="stylesheet" href="{{ asset('css/manager_reservation_list.css') }}">
 @endsection
 
 @section('content')
 
- <?php $user = Auth::user(); ?>
-<div class="name">{{ $user->name }}さん</div>
 
-<table class="attendance__table" cellpadding="15">
+
+
+<form action="/manager/reservation/search" method="post">
+<div class="search__bar">    
+    @csrf
+    <div class="shop">
+        <label>店舗</label>
+        <span>:</span>
+        <select class="select__shop" name="shop_id">
+              @foreach($managements as $management)
+               <option value="{{ $management['shop_id']}}" >{{ $management->shop->name }}
+              @endforeach   
+        </select>
+    </div>         
+    <div class="date">
+       <label>日付</label>
+       <span>:</span>
+       <input class="select__date" type="date" name="date"  value="{{$format_date}}" >
+    </div>
+    <div class="search__btn">
+       <button class="search__btn-content">表示</button>
+    </div>
+</div>        
+</form>           
+
+<table class="reservation__table" cellpadding="15">
     <tr class="table__title">
-      <th>日付</th>
-      <th>勤務開始</th>
-      <th>勤務終了</th>
-      <th>休憩時間</th>
-      <th>勤務時間</th>
+      <th>番号</th>
+      <th>名前</th>
+      <th>時間</th>
+      <th>人数</th>
+      <th>予約更新時間</th>
+      <th>メール</th>
     </tr>
 
-    @foreach($stamps as $stamp)
+    @foreach($reservations as $key=>$reservation)
     <tr>
-      <td class="table__item-name">{{$stamp['date']}}</td>
-      <td class="table__item-startwork">{{$stamp['start_work']}}</td>
-      <td class="table__item-endwork">{{$stamp['end_work']}}</td>
-      <td class="table__item-totalrest">{{$stamp['totaltime_rest']}}</td>
-      <td class="table__item-totalwork">{{$stamp['totaltime_work']}}</td>
+      <td class="table__item-name">{{$key+1}}</td>
+      <td class="table__item-startwork">{{$reservation->user->name}}</td>
+      <td class="table__item-endwork">{{$reservation['time']}}</td>
+      <td class="table__item-totalrest">{{$reservation['num_of_users']}}</td>
+      <td class="table__item-totalwork">{{$reservation['updated_at']}}</td>
+      <td class="table__item-totalwork">
+        <form action="/manager/mail/draft" method="get">
+           <button>メール作成</button>
+        </form>
+      </td>
     </tr>
-    @endforeach
+   @endforeach
 </table>
 
-<div class="pagenate">
-    <div>{{ $stamps->appends(request()->input())->links('pagination::bootstrap-4') }}</div>
-</div>
+
+
+
+
+
 
 @endsection
-
-
-
-
-
-
-
-
-
-

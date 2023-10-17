@@ -9,12 +9,15 @@
 
 <div class="registration">
     <h2 class="registration__title">Login</h2>
+
+<x-auth-validation-errors class="mb-4" :errors="$errors" />
+
     <form method="POST" action="{{ route('login') }}">
             @csrf
 
       <div class="form__input">
          <div class="form__input-text">
-              <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-envelope"></i>
               <label for="email" :value="__('Email')" />
               <input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" required />
          </div>   

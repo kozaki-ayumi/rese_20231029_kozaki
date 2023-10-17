@@ -15,9 +15,10 @@ class ManagerShopPageController extends Controller
     {
         $user = Auth::user();
         $managements = Management::where('user_id',$user->id)->get();
-        $management = Management::where('user_id',$user->id)->first();
-        $shops = Shop::where('id',$management->shop_id)->get();
-        return view('manager_shop_list',compact('shops'));
+        //$shops = Shop::where('id',$management->shop_id)->get();
+
+        $shops = $user->management_shops()->get();
+        return view('manager.shop_list',compact('shops'));
     }
 
     public function shopModify (Shop $shop)
@@ -30,7 +31,7 @@ class ManagerShopPageController extends Controller
             'genres' => $genres,
        ];
 
-      return view('manager_shop_modify',$data);
+      return view('manager.shop_modify',$data);
     }
 
     public function updateConfirm (Request $request)

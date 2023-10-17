@@ -1,125 +1,42 @@
-.detail__reservation {
-    display:flex;
-    flex-direction: row;
+.form {
+    margin: 30px 0 0 50px;
+}
 
+
+.register__form {
+    margin-bottom: 30px;
 }
 
 .shop__detail {
-    width: 45%;
-    margin: 30px 10px 0 50px;
+    margin: 50px 0 0 50px;
 }
 
-.shop__title {
-    display: flex;
-    flex-direction: row;
-    margin-top: 40px;
-}
-
-.back__btn {
-    width: 25px;
-    height:25px;
-    border: none;
-    border-radius: 3px;
-    background: white;
-    box-shadow: 3px 3px 2px rgb(169, 168, 168);
-    }
-
-.shop__name {
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 10px;
-}
-
-.img {
-    width: 90%;
-    height: auto;
-    margin-top: 10px;
-}
-
-.area__genre {
-    margin: 20px 0;
-    font-size: 12px;
-}
-
-.shop__text {
-    font-size: 12px;
-    width: 90%;
-}
-
-.reservation {
-    margin-top: 30px;
-    margin-left: 10px;
-    width: 40%;
-    position:absolute;
-    top: 0px;
-    left:50%;
-}
-
-.reservation__content {
-    height: 470px;
-    background-color: rgb(66, 90, 249);
-    border-radius: 5px 5px 0 0;
-    padding:10px 20px 0 20px;
-    color: white;
+.form__input {
+    margin-bottom: 15px;
 
 }
 
-.reservation__title {
-    font-size: 17px;
+textarea {
+    vertical-align: top;
 }
 
-.select__date {
-    width:40%;
+.btn {
+    margin-top: 20px;
+}
+
+.button__content {
+    margin-left: px;
     padding: 3px;
-    border-radius: 3px;
-    color: rgb(115, 114, 114);
-    font-size: 11px;
-}
-
-.select__time,.select__people {
-    width: 100%;
-    padding: 5px;
-    margin-top: 7px;
-    border-radius: 3px;
-    color: rgb(115, 114, 114);
-    font-size: 11px;
-
-}
-
-.form__error {
-    font-size: 11px;
-}
-
-.reservation__confirm {
-    background-color: rgb(102, 120, 236);
-    border-radius: 3px;
-    padding: 10px 0 10px 10px;
-    margin-top: 10px;
-    font-size: 11px;
-}
-
-.reservation__btn-content{
-    width: 100%;
-    height: 40px;
+    width: 10%;
+    height: 30px;
     border: none;
-    border-radius: 0 0 5px 5px;
-    background: rgb(35, 35, 246);
+    border-radius: 3px;
+    background: rgb(70, 70, 250);
     color: #fff;
     cursor: pointer;
+    font-size: 12px;
 }
 
-.menu__btn {
-    width: 35px;
-    height: 35px;
-    padding-left: 8px;
-    border: none;
-    background-color: rgb(66, 90, 249);
-    border-radius: 3px;
-    box-shadow: 3px 3px 2px rgb(169, 168, 168);
-
-}
-
-.menu__btn-bar--2 {
-    margin-top: -2px;
-    margin-bottom: -2px;
+.back__button {
+    margin: 20px 0 0 50px;
 }

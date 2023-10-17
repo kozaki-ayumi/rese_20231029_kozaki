@@ -14,7 +14,7 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasRoles;
     
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory,Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -59,5 +59,21 @@ class User extends Authenticatable implements MustVerifyEmail
     public function is_bookmark($shopId)
     {
         return $this->bookmarks()->where('shop_id', $shopId)->exists();
+    }
+
+
+    public function managements()
+    {
+        return $this->hasMany(Management::class);
+    }
+
+    public function management_shops()
+    {
+        return $this->belongsToMany(shop::class, 'managements', 'user_id', 'shop_id');
+    }
+
+    public function is_management($shopId2)
+    {
+        return $this->managements()->where('shop_id', $shopId2)->exists();
     }
 }

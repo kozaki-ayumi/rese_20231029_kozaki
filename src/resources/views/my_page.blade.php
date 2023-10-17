@@ -203,10 +203,5 @@
 
     <div>
 
-
-      @can('adminAccess')
-      <p>管理者だけ見える</p>
-      @endcan
-
       
 @endsection  

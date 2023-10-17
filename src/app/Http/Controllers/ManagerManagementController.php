@@ -23,7 +23,7 @@ class ManagerManagementController extends Controller
                               ->where('date',$format_date)
                               ->oldest('time')->get();
 
-       return view('manager_reservation_list',compact('managements','reservations','format_date'));
+       return view('manager.reservation_list',compact('managements','reservations','format_date'));
     }
 
     public function search (Request $request)
@@ -37,7 +37,7 @@ class ManagerManagementController extends Controller
 
         $format_date = $request->date;
 
-       return view('manager_reservation_list',compact('managements','format_date','reservations'));
+       return view('manager.reservation_list',compact('managements','format_date','reservations'));
     }
 
     public function mailIndex ()

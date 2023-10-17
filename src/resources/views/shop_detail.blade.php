@@ -6,38 +6,35 @@
 
 @section('content')
 
-<body>
-    <div class="detail__reservation">
+<div class="detail__reservation">
 
-      <div class="shop__detail"> 
-        <div class="shop__title">
-          <button class="back__btn" onClick="history.back()"><</button>
-          
-          <div class="shop__name">{{ $item->name }}</div>
-        </div>
-        <img class="img" src="{{$item->image_url}}" alt="img">
-        <div class="area__genre">
+  <div class="shop__detail"> 
+    <h1 class="shop__title">
+      <button class="back__btn" onClick="history.back()"><</button>
+      <div class="shop__name">{{ $item->name }}</div>
+    </h1>
+    <img class="img" src="{{$item->image_url}}" alt="img">
+    <div class="area__genre">
           <span>#{{ $item->area->name}}</span>
           <span>#{{ $item->genre->category}}</span>
-        </div>
-        <p class="shop__text">{{ $item->description}}</p>
+    </div>
+    <p class="shop__text">{{ $item->description}}</p>
+  </div>
         
-      </div>
-        
-       <div class="reservation">
-        <form action="/reservation/completion" method="post">
+  <div class="reservation">
+    <form action="/reservation/completion" method="post">
           @csrf
-        <div class="reservation__content"> 
-          <h2 class="reservation__title">予約</h2>
-              <input type="hidden" name="user_id" value="{{$id}}">
-              <input type="hidden" name="shop_id" value="{{$item->id}}" >
-              <input class="select__date" type="date" name="date" value="{{old('date')}}" min="{{$today}}" > </br>
-              <div class="form__error">
+    <div class="reservation__content"> 
+      <h2 class="reservation__title">予約</h2>
+      <input type="hidden" name="user_id" value="{{$id}}">
+      <input type="hidden" name="shop_id" value="{{$item->id}}" >
+      <input class="select__date" type="date" name="date" value="{{old('date')}}" min="{{$today}}" > </br>
+      <div class="form__error">
                   @error('date')
                   {{ $message }} 
                   @enderror
-              </div>
-              <select class="select__time" name="time" value="{{old('time')}}" >
+      </div>
+      <select class="select__time" name="time" value="{{old('time')}}" >
                 <option value="" disabled selected style="display:none;">時間</option>
                 <option value="17:00">17:00</option>
                 <option value="17:30">17:30</option>
@@ -51,13 +48,13 @@
                 <option value="21:30">21:30</option>
                 <option value="22:00">22:00</option>
                 <option value="22:30">22:30</option>
-              </select> </br>
-              <div class="form__error">
+      </select> </br>
+      <div class="form__error">
                   @error('time')
                   {{ $message }} 
                   @enderror
-              </div>
-              <select class="select__people" name="num_of_users" value="{{old('num_of_users')}}" >
+      </div>
+      <select class="select__people" name="num_of_users" value="{{old('num_of_users')}}" >
                 <option value="" disabled selected style="display:none;">人数</option>
                 <option value="1">1人</option>
                 <option value="2">2人</option>
@@ -69,41 +66,25 @@
                 <option value="8">8人</option>
                 <option value="9">9人</option>
                 <option value="10">10人</option>
-              </select>
-              <div class="form__error">
+      </select>
+      <div class="form__error">
                   @error('num_of_users')
                   {{ $message }} 
                   @enderror
-              </div>
-
-            <div class="reservation__confirm">
-
-              <table>
-                <tr> 
-                    <th align="left" width="80">Shop</th>
-                    <td align="left" width="80">{{ $item->name }}</td>
-                </tr>
-                <tr>
-                    <th align="left" width="80">Date</th>
-                    <td align="left" width="80">2021-04-01</td>   
-                </tr>
-                <tr>
-                    <th align="left" width="80">Time</th>
-                    <td align="left" width="80">17:00</td>
-                </tr>
-                <tr>
-                    <th align="left" width="80">Number</th>
-                    <td align="left" width="80">1人</td>
-                </tr>
-              </table>  
-            </div>
-        </div> 
-        <div class="reservation__btn">
-              <button class="reservation__btn-content">予約する</button>
-        </div>
       </div>
-      </form>
+      
+      <div class="form__error-user_id">
+                  @error('user_id')
+                  {{ $message }} 
+                  @enderror
+      </div>
 
-    
-    </div>  
+    </div> 
+    <div class="reservation__btn">
+              <button class="reservation__btn-content">予約する</button>
+    </div>
+    </form> 
+  </div>
+</div>  
+
 @endsection

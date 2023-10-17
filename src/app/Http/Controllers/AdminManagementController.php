@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -15,8 +16,10 @@ class AdminManagementController extends Controller
 {
     public function index ()
     {
+        $user = Auth::user();
+      
         $shops = Shop::all();
-        return view('admin_manager_register',compact('shops'));
+        return view('admin_manager_register',compact('shops','user'));
     }
 
     public function create (Request $request)
@@ -36,4 +39,5 @@ class AdminManagementController extends Controller
 
        return view('admin_manager_register_confirm');
     }
+
 }
