@@ -93,13 +93,13 @@ class ShopController extends Controller
       return view('shop_detail',$data);
     }
 
-    public function bookmark_shops() 
-    {
-        $articles = \Auth::user()->bookmark_shops()->get();
-        $data = [
-            'shops' => $shops,
-        ];
-        return view('shops.bookmarks', $data);
-    }
+   // public function bookmark_shops() 
+   // {
+     //   $articles = \Auth::user()->bookmark_shops()->get();
+      //  $data = [
+      //      'shops' => $shops,
+      //  ];
+   //     return view('shops.bookmarks', $data);
+  //  }
 }
 

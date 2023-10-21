@@ -40,11 +40,25 @@ class ManagerManagementController extends Controller
        return view('manager.reservation_list',compact('managements','format_date','reservations'));
     }
 
-    public function mailIndex ()
+    public function mailCreateIndex ()
     {
-    return view('mail_draft');
+        $user = Auth::user();
+        $managements = Management::where('user_id',$user->id)->get();
+    
+    
+        return view('mails.mail_draft',compact('managements','user'));
 
     }
+
+
+
+    //public function mailIndex ()
+   // {
+
+
+    //return view('mails.mail_draft');
+
+   // }
     
 
      public function index()

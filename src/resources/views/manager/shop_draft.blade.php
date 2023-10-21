@@ -8,14 +8,14 @@
 
   
  <div class="shop__detail"> 
-    <form action="/manager/shop/register/confirm" method="post">
+    <form action="/manager/shop/register/confirm" method="post" enctype="multipart/form-data">
         @csrf
         <div>
           <label for="name">店名</label>
           <input class="form__input" type="text" name="name" id="name" value="{{ old('name') }}">
         </div>
         <label for="image_url">画像</label>
-        <input class="form__input"  type="url" name="image_url" id="image_url" value="{{ old('image_url') }}"> </br>
+        <input class="form__input"  type="file" name="image_url" id="image_url" value="{{ old('image_url') }}"> </br>
 
         <label for="area">地域</label>
         

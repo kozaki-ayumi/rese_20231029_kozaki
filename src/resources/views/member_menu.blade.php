@@ -56,6 +56,12 @@
                <button class="menu__tag-admin">店舗情報登録/更新</button>
                </form>
             </div>
+             <div>
+               <form action="/manager/mail" method="get"> 
+                @csrf
+               <button class="menu__tag-admin">お知らせメール作成</button>
+               </form>
+            </div>
              
             @endcan
 

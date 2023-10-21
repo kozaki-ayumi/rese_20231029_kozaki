@@ -31,6 +31,7 @@
 </form>
 </div>
     
+<div class="shop">
 <div class="shop__list">
   @foreach($shops as $shop)
   <div class="shop__card">
@@ -75,5 +76,6 @@
     </div>
   </div>   
   @endforeach
-</div>   
+</div>
+<div>   
 @endsection

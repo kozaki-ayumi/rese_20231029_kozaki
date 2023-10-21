@@ -57,6 +57,9 @@ class ManagerShopPageUpdateController extends Controller
         $shop_confirm = $request->only(['id','name','image_url','area_id','genre_id','description']);
         Shop::find($request->id)->update($shop_confirm);
 
+        $document = $request->only(['image_url']);
+        $document -> store('public');
+
         $request->session()->regenerateToken();  
         
         return view('manager.shop_completion');

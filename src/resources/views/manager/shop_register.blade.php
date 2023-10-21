@@ -15,8 +15,8 @@
           <div class="shop__name">{{ $shop_draft['name']}} </div>
           <input type="hidden" name="name" value="{{ $shop_draft['name']}}">
         </div>
-        <img class="img" src="{{ $shop_draft['image_url'] }}" alt="img">
-        <input type="hidden" name="image_url" value="{{ $shop_draft['image_url'] }}">
+        <img class="img" src="{{ asset('storage/' . $imgtitlename) }}">
+        
         <div class="area__genre">
           <span>#{{ $area['name'] }}</span>
           <span>#{{ $genre['category']}}</span>

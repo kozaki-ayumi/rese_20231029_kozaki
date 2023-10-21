@@ -20,12 +20,14 @@ class AdminPermissionSeeder extends Seeder
         $admin = User::create([
             'name' => '管理者',
             'email' => 'kanrisya@sample.com',
+            'email_verified_at' => now(),
             'password' => Hash::make('password'),
         ]);
 
         $manager = User::create([
             'name' => '店舗代表者１',
             'email' => 'tenpo1@sample.com',
+            'email_verified_at' => now(),
             'password' => Hash::make('password'),
         ]);
 

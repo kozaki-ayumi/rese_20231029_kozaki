@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <p>メール送信します<p>
+        <p>{{$data['content']}}</p>
 </body>
 </html>

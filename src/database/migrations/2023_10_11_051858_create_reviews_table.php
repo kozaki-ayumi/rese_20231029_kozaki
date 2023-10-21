@@ -17,7 +17,7 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->integer('reservation_id');
             $table->integer('rate');
-            $table->string('comment');
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }
