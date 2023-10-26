@@ -12,7 +12,8 @@
 ## 作成した目的
 
 
-## githubのurl を。
+## アプリケーションURL
+githubのurl を。
 
 
 
