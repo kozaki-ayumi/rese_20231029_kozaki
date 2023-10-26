@@ -15,7 +15,9 @@ class ReservationController extends Controller
    {
       $reservation = $request->only(['user_id','shop_id','date','time','num_of_users']);
       Reservation::create($reservation);
-      
+
+      $request->session()->regenerateToken();
+
       return view('reservation_thanks');
    }
 
@@ -23,18 +25,20 @@ class ReservationController extends Controller
    {
       Reservation::find($request->reservation_id)->delete();
 
-      $request->session()->regenerateToken();  
+      $request->session()->regenerateToken();
 
-    return redirect('/mypage')->with('message','予約をキャンセルしました。');
+      return redirect('/mypage')->with('message','予約をキャンセルしました。');
    }
 
-   public function update(ReservationRequest $request)
+
+   public function update(Request $request)
    {
       $reservation = $request->only(['date','time','num_of_users']);
       Reservation::find($request->reservation_id)->update($reservation);
 
-       $request->session()->regenerateToken();  
-      
+      $request->session()->regenerateToken();
+
       return redirect('/mypage')->with('message','予約を変更しました。');
+
    }
 }

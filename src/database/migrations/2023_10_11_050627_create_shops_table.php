@@ -18,7 +18,7 @@ class CreateShopsTable extends Migration
             $table->string('name');
             $table->integer('area_id');
             $table->integer('genre_id');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('image_url');
             $table->timestamps();
         });

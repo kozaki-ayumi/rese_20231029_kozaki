@@ -6,31 +6,33 @@
 
 @section('content')
 
-<h1 class="list__title">登録店舗</h1>
+<h1 class="list__title">【登録店舗】</h1>
 
-<div class="shop__detail">
-@foreach($shops as $shop) 
-  <div class="shop__card">
-        <div class="shop__title">
-          <div class="shop__name">{{ $shop['name']}} </div>
+<div class="shop">
+    <div class="shop__list">
+        @foreach($shops as $shop)
+        <div class="shop__card">
+            <div class="shop__name">{{ $shop['name']}}</div>
+            <div class="img">
+              <img class="img" src="{{ $shop['image_url'] }}" alt="img">
+            </div>
+            <div class="area__genre">
+                <span >#{{ $shop->area->name}}</span>
+                <span> #{{ $shop->genre->category}}</span>
+            </div>
+            <div class="description">
+              <p class="shop__text">{{ $shop['description'] }}</p>
+            </div>
+            <div class="btn">
+              <form action="/manager/shop/modify" method="post">
+                @csrf
+                <input type="hidden" name="id" value="{{$shop['id']}}">
+                <button class="btn__content" type="submit">修正する</button>
+              </form>
+            </div>
         </div>
-        <img class="img" src="{{ $shop['image_url'] }}" alt="img">
-        <div class="area__genre">
-          <span>#{{ $shop->area->name}}</span>
-          <span>#{{ $shop->genre->category}}</span>
-        </div>
-        <p class="shop__text">{{ $shop['description'] }}</p>
-        
-        <div class="btn">
-          <form action="/manager/shop/{{$shop['id']}}" method="get">
-             <button class="btn__content" type="submit">修正する</button>
-          </form>  
-        <div>
-  </div>  
-@endforeach 
-</div>       
-
-<button class="back__button" onClick="history.back()">戻る</button>
-
+        @endforeach
+    </div>
+<div>
 
 @endsection

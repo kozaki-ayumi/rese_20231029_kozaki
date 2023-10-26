@@ -1,37 +1,29 @@
 .list__title {
     margin: 20px 0 0 50px;
     font-size: 20px;
-    text-decoration: underline;
 }
 
-
-.shop__detail {
+.shop__list {
     display: flex;
-    margin: 0 10px 0 50px;
+    flex-wrap: wrap;
+    margin: 30px 100px 0 100px;
 }
 
 .shop__card {
-    width:400px;
+    width: 400px;
+    height: 520px;
+    margin: 40px 15px;
 }
 
-.shop__title {
-    display: flex;
-    flex-direction: row;
-    margin-top: 40px;
+.img {
+    margin-top: 5px;
+    width: 100%;
+    height: 300px;
 }
-
-
 
 .shop__name {
     font-size: 20px;
     font-weight: bold;
-    margin-left: 10px;
-}
-
-.img {
-    width: 90%;
-    height: auto;
-    margin-top: 10px;
 }
 
 .area__genre {
@@ -41,7 +33,11 @@
 
 .shop__text {
     font-size: 12px;
-    width: 90%;
+    width: 100%;
+}
+
+.description {
+    height: 90px;
 }
 
 .btn__content {
@@ -55,6 +51,8 @@
     color: #fff;
     cursor: pointer;
     font-size: 12px;
+
+
 }
 
 

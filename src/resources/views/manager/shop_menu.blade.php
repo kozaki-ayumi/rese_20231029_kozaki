@@ -7,7 +7,6 @@
 @section('content')
 
 <div class="menu">
-  
   <div>
     <form action="/manager/shop/list" method="get">
     <button class="menu__tag" type="submit">店舗情報更新</button>
@@ -18,13 +17,7 @@
     <form action="/manager/shop/draft" method="get">
     <button class="menu__tag" type="submit">店舗新規登録</button>
     </form>
-  </div>    
+  </div>
 </div>
-
-
-
-
-
-
 
 @endsection

@@ -8,10 +8,10 @@
     <script src="https://kit.fontawesome.com/1f3107f7ed.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/title.css') }}">
-     @yield('css')
-  
+      @yield('css')
+
 </head>
-<body>
+  <body>
     <header class="title">
       @if( Auth::check() )
       <form action="/member/menu" method="get">
@@ -29,12 +29,12 @@
           <hr class="menu__btn-bar--3" width="30%" align="left">
         </button>
       </form>
-      @endif    
-        <div class="rese">Rese</div>
+      @endif
+      <div class="rese">Rese</div>
     </header>
 
-  <main>
-    @yield('content')
-  </main>
-</body>
+    <main>
+        @yield('content')
+    </main>
+  </body>
 </html>

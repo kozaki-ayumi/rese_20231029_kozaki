@@ -36,6 +36,13 @@ body {
     font-size: 25px;
     margin-left: 15px;
     color: rgb(66, 90, 249);
-    
 }
 
+@media screen and (max-width: 768px) {
+
+    .title {
+            display: flex;
+            flex-direction: row;
+            margin: 40px 0 0 40px;
+    }
+}

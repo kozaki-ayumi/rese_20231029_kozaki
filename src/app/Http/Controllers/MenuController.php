@@ -16,15 +16,15 @@ use Carbon\Carbon;
 
 class MenuController extends Controller
 {
-    public function index()
+    public function guestIndex()
     {
         return view('guest_menu');
     }
 
-    public function register()
-    {
-        return view('auth/register');
-    }
+    //public function register()
+    //{
+        //return view('auth/register');
+    //}
 
     public function thanksIndex()
     {
@@ -32,19 +32,18 @@ class MenuController extends Controller
     }
 
 
-    public function login()
+    //public function login()
+    //{
+      //  return view('auth/login');
+    //}
+
+    public function memberIndex()
     {
-        return view('auth/login');
-    }
-    
-    public function index2()
-    {
-        
         return view('member_menu');
     }
 
     public function myPageIndex(Request $request)
-   {
+    {
 
     $user = Auth::user();
     $user_id = Auth::id();
@@ -59,6 +58,6 @@ class MenuController extends Controller
 
     $shops = $user->bookmark_shops()->get();
     return view('my_page',compact('user','reservations','reservationPasts','shops','today'));
-   }
+    }
 
 }

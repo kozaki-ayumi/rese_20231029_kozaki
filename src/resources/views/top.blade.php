@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+
+{{QrCode::size(100)->generate('https://home.gattscom.com')}}
+<!--? echo QrCode::size(100)--->generate('https://home.gattscom.com');?>
     シンプルにQRコードの生成を行うコード<br>
     {!! QrCode::generate(url('top')) !!}
     <br>

@@ -13,7 +13,7 @@ class Management extends Model
 
     protected $fillable = [
          'user_id',
-         'shop_id',
+         'shop_id'
        ];
 
 

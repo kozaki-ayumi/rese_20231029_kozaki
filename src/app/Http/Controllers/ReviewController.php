@@ -7,11 +7,11 @@ use App\Models\Review;
 
 class ReviewController extends Controller
 {
-     public function store(Request $request)
+   public function store(Request $request)
    {
       $review = $request->only(['reservation_id','rate','comment']);
       Review::create($review);
-      
-      return back();
+
+      return redirect('/mypage')->with('message','レビューありがとうございました。');
    }
 }

@@ -14,20 +14,20 @@ use Carbon\Carbon;
 
 class ShopController extends Controller
 {
-    public function index ()
-    {
-        $shops = Shop::all();
-        $areas = Area::all();
-        $genres = Genre::all();
-   
-        $user = Auth::user();
-        $id = Auth::id();
+   public function index ()
+   {
+      $shops = Shop::all();
+      $areas = Area::all();
+      $genres = Genre::all();
 
-        return view('shop_all',compact('shops','areas','genres'));
-    }
+      $user = Auth::user();
+      $id = Auth::id();
+
+      return view('shop_all',compact('shops','areas','genres'));
+   }
 
 
-    public function search(Request $request)
+   public function search(Request $request)
    {
       if($request->area_id === '0' && $request->genre_id === '0')
       {
@@ -38,7 +38,6 @@ class ShopController extends Controller
          $genres = Genre::all();
          $search_keyword = $request->input('keyword');
          return view('shop_all',compact('shops','areas','genres','search_keyword'));
-        
       }
       elseif($request->area_id === '0')
       {
@@ -49,7 +48,7 @@ class ShopController extends Controller
          $genres = Genre::all();
          $search_genre = Genre::find($request->genre_id);
          $search_keyword = $request->input('keyword');
-      
+
          return view('shop_all',compact('shops','areas','genres','search_genre','search_keyword'));
       }
       elseif($request->genre_id === '0')
@@ -61,7 +60,7 @@ class ShopController extends Controller
          $genres = Genre::all();
          $search_area = Area::find($request->area_id);
          $search_keyword = $request->input('keyword');
-         
+
          return view('shop_all',compact('shops','areas','genres','search_area','search_keyword'));
       }
       else
@@ -78,28 +77,19 @@ class ShopController extends Controller
          $search_keyword = $request->input('keyword');
          return view('shop_all',compact('shops','areas','genres','search_area','search_genre','search_keyword'));
       }
-   }   
+   }
 
 
-    public function detail(Shop $shop)
-    {
-
-     $data = [
+   public function detail(Shop $shop)
+   {
+      $data = [
       'item' => $shop,
       'id' => Auth::id(),
       'today' => Carbon::now()->format('Y-m-d'),
-     ];
+      ];
 
       return view('shop_detail',$data);
-    }
+   }
 
-   // public function bookmark_shops() 
-   // {
-     //   $articles = \Auth::user()->bookmark_shops()->get();
-      //  $data = [
-      //      'shops' => $shops,
-      //  ];
-   //     return view('shops.bookmarks', $data);
-  //  }
 }
 

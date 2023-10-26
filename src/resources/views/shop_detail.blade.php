@@ -9,10 +9,10 @@
 <div class="detail__reservation">
 
   <div class="shop__detail"> 
-    <h1 class="shop__title">
+    <div class="shop__title">
       <button class="back__btn" onClick="history.back()"><</button>
       <div class="shop__name">{{ $item->name }}</div>
-    </h1>
+    </div>
     <img class="img" src="{{$item->image_url}}" alt="img">
     <div class="area__genre">
           <span>#{{ $item->area->name}}</span>
@@ -20,7 +20,6 @@
     </div>
     <p class="shop__text">{{ $item->description}}</p>
   </div>
-        
   <div class="reservation">
     <form action="/reservation/completion" method="post">
           @csrf
@@ -51,7 +50,7 @@
       </select> </br>
       <div class="form__error">
                   @error('time')
-                  {{ $message }} 
+                  {{ $message }}
                   @enderror
       </div>
       <select class="select__people" name="num_of_users" value="{{old('num_of_users')}}" >
@@ -69,22 +68,20 @@
       </select>
       <div class="form__error">
                   @error('num_of_users')
-                  {{ $message }} 
+                  {{ $message }}
                   @enderror
       </div>
-      
       <div class="form__error-user_id">
                   @error('user_id')
                   {{ $message }} 
                   @enderror
       </div>
-
-    </div> 
+    </div>
     <div class="reservation__btn">
               <button class="reservation__btn-content">予約する</button>
     </div>
-    </form> 
+    </form>
   </div>
-</div>  
+</div>
 
 @endsection

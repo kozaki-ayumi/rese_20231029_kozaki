@@ -3,18 +3,23 @@
     top: 70px;
     right:10%;
     width:50%;
+    display: flex;
+    justify-content: space-between;
     background-color: white;
     padding: 10px;
     border-radius: 3px;
     box-shadow: 3px 3px 2px rgb(169, 168, 168);
 }
 
-
+.search__bar-content {
+    display: flex;
+    justify-content: space-between;
+}
 
 .area {
     border: none;
     padding: 4px 10px 4px 4px;
-    width:25%;
+    width:30%;
 }
 
 .genre {
@@ -22,13 +27,13 @@
     border-left: solid #d0cdcd ;
     border-right: solid #d0cdcd;
     padding: 4px 20px 4px 4px;
-    width: 25%;
+    width: 35%;
     font-size: 12px;
 }
 
 .search__keyword {
     border: none;
-    width: 40%;
+    width: 30%;
     padding: 4px;
 }
 
@@ -42,7 +47,6 @@
     display: flex;
     flex-wrap: wrap;
     margin: 100px 100px 0 100px;
-   
 }
 
 .shop__card {
@@ -52,7 +56,6 @@
     border-radius: 0px 0px 7px 7px;
     box-shadow: 3px 3px 2px rgb(169, 168, 168);
 }
-
 
 .img {
     width: 100%;
@@ -76,7 +79,6 @@
     justify-content: space-between;
 }
 
-
 .detail__btn {
     margin: 15px 0px 20px 15px;
     padding: 3px;
@@ -89,7 +91,7 @@
     cursor: pointer;
     font-size: 12px;
 }
-        
+
 .bookmark__heart {
     font-size: 30px;
     border: none;
@@ -97,104 +99,121 @@
     padding: 10px 40px 0 0;
 }
 
+
 @media screen and (max-width: 768px) {
 
     .search__bar {
-            position: absolute;
-            top: 70px;
-            right: 5%;
-            width: 60%;
-            background-color: white;
-            padding: 10px;
-            border-radius: 3px;
-            box-shadow: 3px 3px 2px rgb(169, 168, 168);
-        }
-    
-        .area {
-            border: none;
-            padding: 2px 5px 2px 2px;
-            width: 25%;
-            font-size: 12px;
-        }
-    
-        .genre {
-            border: none;
-            border-left: solid #d0cdcd;
-            border-right: solid #d0cdcd;
-            padding: 2px 10px 2px 2px;
-            width: 25%;
-            font-size: 12px;
-        }
-    
-        .search__keyword {
-            border: none;
-            width: 35%;
-            padding: 2px;
-        }
-    
-        .search__btn {
-            border: none;
-            background-color: white;
-            font-size: 12px;
-        }
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        width: 80%;
+        background-color: white;
+        padding: 3px 0 3px 0;
+        border-radius: 3px;
+        box-shadow: 3px 3px 2px rgb(169, 168, 168);
+    }
 
-        
+    .search__bar-content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .area {
+        border: none;
+        padding: 2px 5px 2px 2px;
+        width: 30%;
+        font-size: 10px;
+    }
+
+    .genre {
+        border: none;
+        border-left: solid #d0cdcd;
+        border-right: solid #d0cdcd;
+        padding: 2px 1px 2px 2px;
+        width: 30%;
+        font-size: 10px;
+    }
+
+    .search__keyword {
+        border: none;
+        width: 30%;
+        padding: 2px;
+        font-size: 10px;
+    }
+
+    .search__btn {
+        border: none;
+        width: 20%;
+        background-color: white;
+        font-size: 10px;
+    }
+
     .shop__list {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin: 70px 20px 0 30px;
+        margin: 100px 5px 0 5px;
     }
 
-        .shop__list:before {
-            content: "before";
-            width: 270px;
-            margin: 10px 5px;
-            order: 1;
-            color: aliceblue;
-            
+
+    .shop__card {
+        width: 180px;
+        margin: 10px 7px;
+        background-color: white;
+        border-radius: 0px 0px 7px 7px;
+        box-shadow: 3px 3px 2px rgb(169, 168, 168);
+    }
+
+    .shop__card:before {
+        content: "";
+        width: 180px;
+        order: 1;
         }
+
+    .shop__list::after {
+        content: "";
+        width: 180px;
+        order: 1;
+    }
 
     .img {
         width: 100%;
         border-radius: 7px 7px 0px 0px;
     }
-    
+
     .shop__name {
-        font-size: 16px;
+        font-size: 15px;
         margin: 10px 10px 3px 15px;
         font-weight: bold;
     }
-    
+
     .area__genre {
         font-size: 11px;
         padding-left: 15px;
-    
     }
-    
+
     .btn__heart {
         display: flex;
         justify-content: space-between;
     }
-    
-    
+
     .detail__btn {
         margin: 15px 0px 20px 15px;
-        padding: 3px;
+        padding: 2px 0 2px 0;
         width: 100%;
-        height: 30px;
+        height: 20px;
         border: none;
         border-radius: 3px;
         background: rgb(70, 70, 250);
         color: #fff;
         cursor: pointer;
-        font-size: 12px;
+        font-size: 8px;
     }
-    
+
     .bookmark__heart {
-        font-size: 30px;
+        font-size: 20px;
         border: none;
         background-color: white;
-        padding: 10px 40px 0 0;
+        padding: 12px 10px 0 0;
     }
 }

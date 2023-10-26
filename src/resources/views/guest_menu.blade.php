@@ -11,29 +11,30 @@
 
 </head>
 <body>
-    <div class="close__btn">
-        <button class="close__btn-content"  onClick="history.back()">×</button>
-    </div>   
+    <header>
+        <div class="close__btn">
+            <button class="close__btn-content"  onClick="history.back()">×</button>
+        </div>
+    </header>
 
     <menu>
         <div class="menu">
-             <div>
-               <form action="/" method="get">
-               <button class="menu__tag" type="">Home</button>
-               </form>
-             </div>
-            
-            <form action="/register" method="get">
-             <div>
-               <button class="menu__tag" type="submit">Registration</button>
-             </div>
-           </form>
-           <form action="/login" method="get">
-             <div>
-               <button class="menu__tag" type="submit">Login</button>
-             </div>
-           </form>
-        </div>    
-    </menu>     
+            <div>
+                <form action="/" method="get">
+                  <button class="menu__tag" type="">Home</button>
+                </form>
+            </div>
+            <div>
+                <form action="/register" method="get">
+                  <button class="menu__tag" type="submit">Registration</button>
+                </form>
+            </div>
+            <div>
+                <form action="/login" method="get">
+                  <button class="menu__tag" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </menu>
 </body>
 </html>

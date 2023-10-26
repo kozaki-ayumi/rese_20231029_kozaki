@@ -7,13 +7,12 @@
 @section('content')
 
 <div class="thanks">
-     
       <div class="thanks__comment">会員登録ありがどうございます</div>
       <div class="btn">
         <form action="/" method="get">
-         <button class="btn-content">ログインする</button>
+          <button class="btn-content">ログインする</button>
         </form>
-      <div>  
+      <div>
 </div>
 
 

@@ -7,12 +7,7 @@
 @section('content')
 
 <div class="thanks">
-     
-      <div class="thanks__comment">登録しました</div>
-      <div class="btn">
-      
-        <button class="btn-content" onClick="history.back()">戻る</button>
-      <div>  
+      <p class="thanks__comment">登録しました</p>
 </div>
 
 @endsection

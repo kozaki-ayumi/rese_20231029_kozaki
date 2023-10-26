@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
+//use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use SimpleSoftwareIO\BaconQrCode\Encoder\QrCode;
 
 class QrCodeController extends Controller
 {

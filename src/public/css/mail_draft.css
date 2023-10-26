@@ -1,0 +1,52 @@
+.title {
+    display:flex;
+    flex-direction: row;
+    margin: 50px 0 30px 30px;
+}
+
+.back__btn {
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 3px 3px 2px rgb(169, 168, 168);
+    margin-top: 10px;
+}
+
+.title__content {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.mail {
+    margin-left: 30px;
+}
+
+.mail__form {
+    margin-bottom: 20px;
+}
+
+.title__input {
+    width: 60%;
+    height: 30px;
+    margin-left: 5px;
+}
+
+.textarea__input {
+    width: 60%;
+    height: 300px;
+}
+
+textarea {
+    vertical-align: top;
+}
+
+.btn__content {
+    font-size: 13px;
+    padding: 5px 13px;
+    border: none;
+    background-color: rgb(66, 90, 249);
+    border-radius: 3px;
+    color: white;
+}

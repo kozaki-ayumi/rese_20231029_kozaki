@@ -1,18 +1,10 @@
-.list__title {
-    margin: 20px 0 0 50px;
+.title {
     font-size: 20px;
-    text-decoration: underline;
-}
-
-.detail__reservation {
-    display:flex;
-    flex-direction: row;
-
 }
 
 .shop__detail {
     width: 45%;
-    margin: 30px 10px 0 50px;
+    margin: 30px 10px 0 70px;
 }
 
 .shop__title {
@@ -20,8 +12,6 @@
     flex-direction: row;
     margin-top: 40px;
 }
-
-
 
 .shop__name {
     font-size: 20px;
@@ -37,18 +27,19 @@
 
 .area__genre {
     margin: 20px 0;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .shop__text {
-    font-size: 12px;
+    font-size: 15px;
     width: 90%;
 }
 
-
+.btn {
+    margin-top: 30px;
+}
 
 .btn__content {
-    margin-left: px;
     padding: 3px;
     width: 20%;
     height: 30px;
@@ -60,6 +51,12 @@
     font-size: 12px;
 }
 
+.back__btn {
+    margin-top: 20px;
+    border: none;
+    border-bottom: solid ;
+
+}
 
 
 
