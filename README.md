@@ -1,6 +1,5 @@
 <<<<<<< HEAD
 # rese2
-# Rese2023-10-27
 =======
 # rese
 トップページではお店の一覧が表示される。
@@ -57,10 +56,17 @@ Laravel 8.83.27
 
 
 #　環境構築
-・管理者登録と管理者・店舗代表者の権限はsrc/database/seeders/AdminPsemissionSeeder.phpに登録してあるため、ターミナルで下記コマンドを入力し管理者登録と権限を作成してください。
-php artisan 
+・店舗情報と地域・ジャンルのデータがシーダーファイルにあるのでターミナルのphpコンテナ内で下記コマンドを入力し登録してください。
+php artisan db:seed
+・管理者登録と管理者・店舗代表者の権限はsrc/database/seeders/AdminPermissionSeeder.phpに登録してあるため、phpコンテナ内で下記コマンドを入力し管理者登録と権限を作成してください。
+php artisan db:seed --class=AdminPermissionSeeder
 
 ・予約当日朝7時に予約確認メールが送れるようにcron作成してください。
+
+## その他
+<管理者のログイン情報>
+email:kanrisya@sample.com
+password:password
 
 
 

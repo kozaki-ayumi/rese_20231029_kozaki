@@ -10,22 +10,32 @@
 <div class="registration">
    <h2 class="registration__title">Registration</h2>
 
-   <x-auth-validation-errors class="mb-4" :errors="$errors" />
+   
    <form method="POST" action="{{ route('register') }}">
             @csrf
       <div class="form__input">
          <div class="form__input-text">
                <i class="fa-solid fa-user"></i>
                <label for="name" :value="__('Name')" />
-               <input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" placeholder="Username" required autofocus />
+               <input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" placeholder="Username" />
          </div>
+         <div class="form__error">
+            @error('name')
+            {{ $message }}
+            @enderror
+        </div>
       </div>
 
       <div class="form__input">
          <div class="form__input-text">
                <i class="fa-solid fa-envelope"></i>
                <label for="email" :value="__('Email')" />
-               <input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" required />
+               <input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" />
+         </div>
+         <div class="form__error">
+            @error('email')
+            {{ $message }}
+            @enderror
          </div>
       </div>
 
@@ -36,8 +46,12 @@
             <input id="password" class="block mt-1 w-full"
                                  type="password"
                                  name="password"
-                                 placeholder="Password"
-                                 required autocomplete="new-password" />
+                                 placeholder="Password" />
+         </div>
+         <div class="form__error">
+            @error('password')
+            {{ $message }}
+            @enderror
          </div>
       </div>
 

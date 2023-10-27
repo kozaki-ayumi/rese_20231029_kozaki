@@ -18,8 +18,8 @@
       </div>
       <div class="shop__img">
         <input type="hidden" name="image_url" value="{{ asset('storage/' . $imgtitlename) }}">
+        <img class="img" src="{{ asset('storage/' . $imgtitlename) }}">
       </div>
-      <img class="img" src="{{ asset('storage/' . $imgtitlename) }}">
       <div class="area__genre">
         <span>#{{ $area['name'] }}</span>
         <span>#{{ $genre['category']}}</span>

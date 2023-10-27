@@ -14,9 +14,9 @@ class AreasTableSeeder extends Seeder
      */
     public function run()
     {
-       Area::create(['name'=>'東京都']);
-       Area::create(['name'=>'大阪府']);
-       Area::create(['name'=>'福岡県']);
+        Area::create(['name'=>'東京都']);
+        Area::create(['name'=>'大阪府']);
+        Area::create(['name'=>'福岡県']);
 
 
     }

@@ -23,15 +23,6 @@ class AdminManagementController extends Controller
 
     public function create (Request $request)
     {
-        //$manager = User::where('email',$request->email)->first();
-        //$manager_id = User::where('email',$request->email)->value('id');
-        //$management = [
-        //'user_id' => $manager_id,
-        //'shop_id' => $request->shop_id,
-       // ];
-        //management::create($management);
-
-
         $manager = User::create([
                     'name' => 'Manager',
                     'email' => $request->email,
@@ -39,7 +30,9 @@ class AdminManagementController extends Controller
                     'password' => Hash::make('password'),
                     ]);
         $manager->assignRole('manager');
+
+        $request->session()->regenerateToken();
+
         return view('admin_manager_register_confirm');
     }
-
 }

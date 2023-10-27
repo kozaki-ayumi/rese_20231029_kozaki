@@ -37,7 +37,8 @@
 }
 
 .form__error {
-    font-size: 12px;
+    font-size: 15px;
+    color: red;
 }
 
 .registration__btn {

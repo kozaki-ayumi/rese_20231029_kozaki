@@ -15,7 +15,7 @@ class MailController extends Controller
         $user = Auth::user();
         return view('mails.mail_draft',compact('user'));
     }
-    
+
     public function send(Request $request)
     {
 

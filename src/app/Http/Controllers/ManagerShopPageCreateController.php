@@ -16,19 +16,16 @@ use App\Models\Genre;
 
 class ManagerShopPageCreateController extends Controller
 {
-     public function shopRegisterIndex ()
+    public function shopRegisterIndex ()
     {
         $areas = Area::all();
         $genres = Genre::all();
 
         return view('manager.shop_draft',compact('areas','genres'));
-
     }
 
     public function registerConfirm (ShopRequest $request)
     {
-        
-        
         $shop_draft = $request->only(['name','image_url','area_id','genre_id','description']);
         $imgtitlename=$request->image_url->getClientOriginalName();
         $shop_img = $request->image_url->storeAs('public',$imgtitlename,);
@@ -53,7 +50,6 @@ class ManagerShopPageCreateController extends Controller
         $genre = Genre::find($request->genre_id);
 
         return view('manager.shop_register',compact('shop_draft','area','genre','imgtitlename'));
-
     }
 
     public function create (Request $request)
@@ -78,7 +74,7 @@ class ManagerShopPageCreateController extends Controller
         //$dir = 'shop';
         //$request->file('image_url')->store('public/' . $dir);
 
-        $request->session()->regenerateToken();  
+        $request->session()->regenerateToken();
 
         return view('manager.shop_completion');
 

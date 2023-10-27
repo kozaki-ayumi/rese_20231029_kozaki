@@ -14,7 +14,6 @@ use App\Http\Controllers\ManagerShopPageCreateController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\StripePaymentsController;
-use App\Http\Controllers\ManagerMenuController;
 use App\Http\Controllers\ProfileController as ProfileOfAdminController;
 
 
@@ -29,16 +28,10 @@ use App\Http\Controllers\ProfileController as ProfileOfAdminController;
 |
 */
 
-
-//Route::middleware(['verified'])->group(function(){
- // Route::get('/', [ShopController::class, 'index']);
-//});
-
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/shop/{shop}', [ShopController::class, 'detail']);
 Route::post('/shop/search', [ShopController::class, 'search']);
 Route::get('/guest/menu', [MenuController::class, 'guestIndex']);
-// Route::get('/register', [MenuController::class, 'register']);
 
 Route::group(['middleware' => 'verified'], function() {
     Route::get('/register/thanks', [MenuController::class, 'thanksIndex']);
@@ -68,40 +61,16 @@ Route::group(['middleware' => ['role:manager']], function(){
     Route::post('payment', [StripePaymentsController::class, 'payment']);
     Route::get('/manager/shoppage', [ManagerShopPageUpdateController::class, 'shopPageIndex']);
     Route::get('/manager/shop/list',[ManagerShopPageUpdateController::class, 'shopListIndex']);
-    Route::post('/manager/shop/modify', [ManagerShopPageUpdateController::class, 'shopModify'])->name("form.modify");
-    Route::post('/manager/shop/confirm', [ManagerShopPageUpdateController::class, 'updateConfirm']);
-    Route::post('/manager/shop/update', [ManagerShopPageUpdateController::class, 'update']);
     Route::get('/manager/shop/draft',    [ManagerShopPageCreateController::class, 'shopRegisterIndex'])->name("form.register");
     Route::post('/manager/shop/register/confirm', [ManagerShopPageCreateController::class, 'registerConfirm']);
     Route::post('/manager/shop/register', [ManagerShopPageCreateController::class, 'create']);
-
-
-  
-  
-  
-  
-
-
-  //Route::get('/manager/area/genre', [ManagerAreaGenreController::class, 'areaGenreIndex']);
-  //Route::post('/manager/area/register', [ManagerAreaGenreController::class, 'areaStore']);
-  //Route::post('/manager/genre/register', [ManagerAreaGenreController::class, 'genreStore']);
-  //Route::post('/manager/area/delete', [ManagerAreaGenreController::class, 'areaDelete']);
-  //Route::delete('/manager/genre/delete', [ManagerAreaGenreController::class, 'genreDelete']);
-
+    Route::get('/manager/shop/{shop}', [ManagerShopPageUpdateController::class, 'shopModify']);
+    Route::post('/manager/shop/confirm', [ManagerShopPageUpdateController::class, 'updateConfirm']);
+    Route::post('/manager/shop/update', [ManagerShopPageUpdateController::class, 'update']);
 
 });
 
 Route::get('/top', [QrCodeController::class, 'index']);
-//Route::post('/mail/send', [TestMailController::class, 'send']);
-
-
-
-Route::get('/dashboard', function () {
-  return view('register_thanks');
-})->middleware(['auth','verified'])->name('dashboard');
-
-
-
 
 
 Route::get('/dashboard', function () {
@@ -109,21 +78,6 @@ Route::get('/dashboard', function () {
 })->middleware(['verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
-
-
-//Route::prefix('admin')->name('admin.')->group(function(){
-    //Route::get('/menu', function () {
-       // return view('admin_menu');
-   // })->middleware(['auth:admin'])->name('dashboard');
-
-    //Route::middleware('auth:admin')->group(function () {
-      //  Route::get('/profile', [ProfileOfAdminController::class, 'edit'])->name('profile.edit');
-      //  Route::patch('/profile', [ProfileOfAdminController::class, 'update'])->name('profile.update');
-       // Route::delete('/profile', [ProfileOfAdminController::class, 'destroy'])->name('profile.destroy');
-    //});
-
-    //require __DIR__.'/admin.php';
-    //});
 
 
 

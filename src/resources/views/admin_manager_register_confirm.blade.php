@@ -7,7 +7,10 @@
 @section('content')
 
 <div class="thanks">
-      <p class="thanks__comment">登録しました</p>
+      <p class="thanks__comment">店舗代表者登録しました。</p>
+      <p>パスワードの初期値は『password』です。</p>
+      <div class="btn">
+      </div>
 </div>
 
 @endsection

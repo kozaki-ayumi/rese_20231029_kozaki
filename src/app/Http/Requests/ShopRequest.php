@@ -24,7 +24,7 @@ class ShopRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'max:255'],
+            'name' => ['required', 'max:125'],
             'image_url' => ['required'],
             'area_id' => ['required'],
             'genre_id' => ['required']
@@ -35,6 +35,7 @@ class ShopRequest extends FormRequest
     {
         return [
             'name.required' => '※名前を入力してください',
+            'name.max' => '※名前を125文字以下で入力してください',
             'image_url.required' => '※画像を選択してください',
         ];
     }

@@ -39,6 +39,7 @@
       <th>人数</th>
       <th>予約更新時間</th>
    </tr>
+   @if(isset($reservations))
    @foreach($reservations as $key=>$reservation)
    <tr>
       <td class="table__item-name">{{$key+1}}</td>
@@ -48,6 +49,7 @@
       <td class="table__item-name">{{$reservation['updated_at']}}</td>
    </tr>
    @endforeach
+   @endif
 </table>
 
 @endsection

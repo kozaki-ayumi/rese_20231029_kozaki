@@ -24,11 +24,9 @@
               <p class="shop__text">{{ $shop['description'] }}</p>
             </div>
             <div class="btn">
-              <form action="/manager/shop/modify" method="post">
-                @csrf
-                <input type="hidden" name="id" value="{{$shop['id']}}">
-                <button class="btn__content" type="submit">修正する</button>
-              </form>
+              <form action="/manager/shop/{{$shop['id']}}" method="get">
+             <button class="btn__content" type="submit">修正する</button>
+          </form> 
             </div>
         </div>
         @endforeach

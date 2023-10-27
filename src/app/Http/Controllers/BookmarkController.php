@@ -17,15 +17,14 @@ class BookmarkController extends Controller
             $user->bookmark_shops()->attach($shopId);
         }
         return back();
-        
     }
 
-     public function destroy($shopId)
+    public function destroy($shopId)
     {
         $user = Auth::user();
         if ($user->is_bookmark($shopId)) {
             $user->bookmark_shops()->detach($shopId);
         }
         return back();
-    }    
+    }
 }

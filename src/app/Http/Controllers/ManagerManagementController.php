@@ -19,11 +19,16 @@ class ManagerManagementController extends Controller
         $management = Management::where('user_id',$user->id)->first();
 
         $format_date = Carbon::now()->format('Y-m-d');
+
+        if(!empty($management)){
         $reservations = Reservation::where('shop_id',$management->shop_id)
                                     ->where('date',$format_date)
                                     ->oldest('time')->get();
-
         return view('manager.reservation_list',compact('managements','reservations','format_date'));
+        }else{
+
+        return view('manager.reservation_list',compact('managements','format_date'));
+        }
     }
 
     public function search (Request $request)
@@ -46,11 +51,4 @@ class ManagerManagementController extends Controller
         $user = Auth::user();
         return view('mails.mail_draft',compact('user'));
     }
-
-    //public function index()
-    //{
-       // $src = base64_encode(QrCode::format('png')->size(100)->generate//('https://qiita.com/nobuhiro-kobayashi'));
-
-       // return response('<img src="data:image/png;base64, ' . $src . '">');
-    //}
 }

@@ -18,11 +18,9 @@
         </div>
         <div class="shop__img">
           @if(empty($shop_modify['new_image_url']))
-          <input type="hidden" name="old_image_url" value="{{$shop_modify['old_image_url'] }}">
-          <input type="hidden" name="image_url" value="{{$shop_modify['old_image_url'] }}">
-          <img class="img" src="{{ $shop_modify['old_image_url'] }}">
+          <input type="hidden" name="image_url" value="{{$shop_modify['image_url'] }}">
+          <img class="img" src="{{ $shop_modify['image_url'] }}">
           @else
-          <input type="hidden" name="old_image_url" value="{{$shop_modify['old_image_url'] }}">
           <input type="hidden" name="image_url" value="{{ asset('storage/' . $imgtitlename) }}">
           <img class="img" src="{{ asset('storage/' . $imgtitlename) }}">
           @endif
@@ -40,9 +38,6 @@
           <button class="back__btn" type="submit" name="action" id="modify_btn" value="back">修正する</button>
         <div>
   </form>
-  <div class="close__btn">
-        <button class="close__btn-content"  onClick="history.back()">×</button>
-  </div>
 </div>
 
 @endsection

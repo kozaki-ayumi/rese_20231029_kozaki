@@ -27,39 +27,41 @@ class ManagerShopPageUpdateController extends Controller
         return view('manager.shop_list',compact('shops'));
     }
 
-    public function shopModify (Request $request)
+   // public function shopModify (Request $request)
+   // {
+     //   $areas = Area::all();
+     //   $genres = genre::all();
+      //  $shop = Shop::find($request->id);
+     //   $data = [
+      //      'item' => $shop,
+     //       'areas' => $areas,
+      //      'genres' => $genres,
+     //   ];
+     //   return view('manager.shop_modify',$data);
+
+    //}
+
+public function shopModify (Shop $shop)
     {
         $areas = Area::all();
         $genres = genre::all();
-        $shop = Shop::find($request->id);
         $data = [
             'item' => $shop,
             'areas' => $areas,
             'genres' => $genres,
         ];
         return view('manager.shop_modify',$data);
-
-
     }
 
 
-    //public function shopModify (Shop $shop)
-    //{
-       // $areas = Area::all();
-       // $genres = genre::all();
-       // $data = [
-        //    'item' => $shop,
-        //    'areas' => $areas,
-         //   'genres' => $genres,
-        //];
-       // return view('manager.shop_modify',$data);
-    //}
 
-    public function updateConfirm (Request $request)
+
+
+    public function updateConfirm (ShopRequest $request)
     {
 
         if($request->new_image_url === null){
-            $shop_modify = $request->only(['id','name','old_image_url','area_id','genre_id','description']);
+            $shop_modify = $request->only(['id','name','image_url','area_id','genre_id','description']);
 
             $area = Area::find($request->area_id);
             $genre = Genre::find($request->genre_id);
@@ -67,7 +69,7 @@ class ManagerShopPageUpdateController extends Controller
             return view('manager.shop_confirm',compact('shop_modify','area','genre'));
 
         }else{
-            $shop_modify = $request->only(['id','name','old_image_url','new_image_url','area_id','genre_id','description']);
+            $shop_modify = $request->only(['id','name','image_url','new_image_url','area_id','genre_id','description']);
 
             $area = Area::find($request->area_id);
             $genre = Genre::find($request->genre_id);
@@ -81,21 +83,21 @@ class ManagerShopPageUpdateController extends Controller
 
     public function update (Request $request)
     {
-
         if ($request->get('action') === 'back') {
 
-            $shop_modify = $request->only(['old_image_url']);;
-            return redirect()->route('form.modify')->withInput();
+            $item = $request->only(['id','name','image_url','area_id','genre_id','description']);
+
+            $areas = Area::all();
+            $genres = genre::all();
+
+            return view('manager.shop_modify',compact('areas','genres','item'));
         }
 
         $shop_confirm = $request->only(['id','name','image_url','area_id','genre_id','description']);
         Shop::find($request->id)->update($shop_confirm);
 
-        //$document = $request->only(['image_url']);
-        //$document -> store('public');
-
         $request->session()->regenerateToken();
 
         return view('manager.shop_completion');
-        }
     }
+}
