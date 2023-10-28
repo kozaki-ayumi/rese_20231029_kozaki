@@ -16,7 +16,7 @@
 
 
 ## アプリケーションURL
-githubのurl を。
+git@github.com:kozaki-ayumi/rese_20231029_kozaki.git
 
 
 ## 機能一覧
