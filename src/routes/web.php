@@ -70,8 +70,6 @@ Route::group(['middleware' => ['role:manager']], function(){
 
 });
 
-Route::get('/top', [QrCodeController::class, 'index']);
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');
