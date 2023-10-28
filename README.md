@@ -16,8 +16,7 @@
 
 
 ## アプリケーションURL
-git@github.com:kozaki-ayumi/rese_20231029_kozaki.git
-
+https://github.com/kozaki-ayumi/rese_20231029_kozaki
 
 ## 機能一覧
 <ユーザー画面>
