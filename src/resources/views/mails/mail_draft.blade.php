@@ -16,8 +16,7 @@
     <div class="mail">
     <form action="/mail/send" method="post">
         @csrf
-        <input type="hidden" name="manager_email" value="{{$user['email']}}">
-        <div class="mail__form">  
+        <div class="mail__form">
             <label for="title">タイトル</label>
             <input class="title__input" type="text" name="title"  id="title">
         </div>

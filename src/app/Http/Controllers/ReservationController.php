@@ -39,6 +39,5 @@ class ReservationController extends Controller
       $request->session()->regenerateToken();
 
       return redirect('/mypage')->with('message','予約を変更しました。');
-
    }
 }

@@ -129,6 +129,11 @@
                     @csrf
               <input type="hidden" name="reservation_id" value="{{$reservationPast['id']}}">
               <h4 class="review__title">レビュー</h4>
+              <div class="form__error">
+                  @error('rate')
+                  {{ $message }} 
+                  @enderror
+              </div>
               <div class="rate-form">
                   <input id="{{$reservationPast['id']}}__star5" type="radio" name="rate" value="5">
                   <label for="{{$reservationPast['id']}}__star5">★</label>
@@ -143,7 +148,7 @@
               </div>
               <h5 class="comment__title">コメント</h5>
               <div class="comment__btn">
-                  <textarea class="comment_text" name="comment" cols="30" row="5"></textarea> 
+                  <textarea class="comment_text" name="comment" cols="30" row="5">{{ old('comment') }}</textarea> 
                   <div class="review__btn">
                       <button class="review__btn-content">登録</button>
                   </div>

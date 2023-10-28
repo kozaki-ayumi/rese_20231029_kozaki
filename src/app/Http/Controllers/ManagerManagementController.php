@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Management;
 use App\Models\Reservation;
 use Carbon\Carbon;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
 class ManagerManagementController extends Controller

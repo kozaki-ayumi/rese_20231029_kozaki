@@ -28,9 +28,9 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from($this->data['manager_email'],'Rese')
+        return $this->from('kanrisya@sample.com','Rese')
                     ->subject($this->data['title'])
-                    ->view('mails.test_mail')
+                    ->view('mails.notification_mail')
                     ->with('data', $this->data);
     }
 }

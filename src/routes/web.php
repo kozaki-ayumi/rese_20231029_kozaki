@@ -12,7 +12,6 @@ use App\Http\Controllers\ManagerManagementController;
 use App\Http\Controllers\ManagerShopPageUpdateController;
 use App\Http\Controllers\ManagerShopPageCreateController;
 use App\Http\Controllers\MailController;
-use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\StripePaymentsController;
 use App\Http\Controllers\ProfileController as ProfileOfAdminController;
 
@@ -48,14 +47,14 @@ Route::group(['middleware' => 'verified'], function() {
 Route::group(['middleware' => ['role:admin']], function(){
     Route::get('/manager/register', [AdminManagementController::class, 'index']);
     Route::post('/manager/register/confirm', [AdminManagementController::class, 'create']);
+    Route::get('/manager/register', [AdminManagementController::class, 'index']);
+    Route::get('/mail', [MailController::class, 'mailCreateIndex']);
+    Route::post('/mail/send', [MailController::class, 'send']);
 });
-
 
 Route::group(['middleware' => ['role:manager']], function(){
     Route::get('/manager/reservationlist', [ManagerManagementController::class, 'reservationListIndex']);
     Route::post('/manager/reservation/search', [ManagerManagementController::class, 'search']);
-    Route::get('/manager/mail', [MailController::class, 'mailCreateIndex']);
-    Route::post('/mail/send', [MailController::class, 'send']);
     Route::get('/payment/screen', [StripePaymentsController::class, 'index']);
     Route::get('/payment/amount', [StripePaymentsController::class, 'amount']);
     Route::post('payment', [StripePaymentsController::class, 'payment']);

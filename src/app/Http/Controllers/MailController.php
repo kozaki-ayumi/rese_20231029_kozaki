@@ -20,7 +20,6 @@ class MailController extends Controller
     {
 
         $data = $request->validate([
-            'manager_email' =>'required',
             'title'=>'required|string|max:255',
             'content' => 'required|string',
         ]);

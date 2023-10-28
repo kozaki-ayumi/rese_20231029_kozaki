@@ -10,14 +10,13 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
 use Carbon\Carbon;
-//use App\Models\Management;
-
 
 
 class AdminManagementController extends Controller
 {
     public function index ()
     {
+        //return view('mails.mail_draft');
         return view('admin_manager_register');
     }
 
@@ -34,5 +33,11 @@ class AdminManagementController extends Controller
         $request->session()->regenerateToken();
 
         return view('admin_manager_register_confirm');
+    }
+
+     public function mailCreateIndex ()
+    {
+        $user = Auth::user();
+        return view('mails.mail_draft',compact('user'));
     }
 }
