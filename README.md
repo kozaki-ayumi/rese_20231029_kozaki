@@ -43,17 +43,16 @@ Laravel 8.83.27
 
 
 ## テーブル設計
-![テーブル設計]（）
+![テーブル設計]（./rese_table1.png）
 
-![テーブル設計]（）
+![テーブル設計]（./rese_table2.png）
 
 
 ## ER図
-![ER図]（）
+![ER図]（.rese_ER図.png）
 
 
 #　環境構築
-<<<<<<< HEAD
 ・店舗情報と地域・ジャンルのデータがシーダーファイルにあるのでターミナルのphpコンテナ内で下記コマンドを入力し登録してください。
 php artisan db:seed
 ・管理者登録と管理者・店舗代表者の権限はsrc/database/seeders/AdminPermissionSeeder.phpに登録してあるため、phpコンテナ内で下記コマンドを入力し管理者登録と権限を作成してください。
@@ -66,17 +65,3 @@ php artisan db:seed --class=AdminPermissionSeeder
 email:kanrisya@sample.com
 password:password
 
-
-
-
->>>>>>> refs/remotes/origin/main
-=======
-・管理者登録と管理者・店舗代表者の権限はsrc/database/seeders/AdminPsemissionSeeder.phpに登録してあるため、ターミナルで下記コマンドを入力し管理者登録と権限を作成してください。
-php artisan 
-
-・予約当日朝7時に予約確認メールが送れるようにcron作成してください。
-
-
-
-
->>>>>>> 547f019b496d8f91ce0fafa24cc797fb6facbc28
