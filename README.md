@@ -62,7 +62,7 @@ Laravel 8.83.27
 ## テーブル設計
 ![テーブル設計1](./rese_table1.png)
 
-![テーブル設計2](./rese_table3.png)
+![テーブル設計2](./rese_table4.png)
 
 
 ## ER図
