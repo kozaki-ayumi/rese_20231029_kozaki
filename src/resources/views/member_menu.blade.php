@@ -56,7 +56,7 @@
                 <div>
                     <form action="/manager/shoppage" method="get"> 
                         @csrf
-                        <button class="menu__tag-admin">店舗情報登録/更新</button>
+                        <button class="menu__tag-admin">店舗情報更新/登録</button>
                     </form>
                 </div>
                 <div>
