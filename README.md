@@ -51,8 +51,7 @@ Laravel 8.83.27
 ## ER図
 ![ER図](./rese_ER図.png)
 
-
-#　環境構築
+# 環境構築
 ・店舗情報と地域・ジャンルのデータがシーダーファイルにあるのでターミナルのphpコンテナ内で下記コマンドを入力し登録してください。
 php artisan db:seed
 ・管理者登録と管理者・店舗代表者の権限はsrc/database/seeders/AdminPermissionSeeder.phpに登録してあるため、phpコンテナ内で下記コマンドを入力し管理者登録と権限を作成してください。
