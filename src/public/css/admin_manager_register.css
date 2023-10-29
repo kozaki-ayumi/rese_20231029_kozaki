@@ -30,15 +30,9 @@
 
 }
 
-.form__input-shop {
-    display: flex;
-    flex-direction: row;
-    margin-left: 50px;
-
-}
-
 .form__error {
-    font-size: 12px;
+    font-size: 14px;
+    color: red;
 }
 
 .registration__btn {

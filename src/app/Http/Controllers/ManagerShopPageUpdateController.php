@@ -27,21 +27,7 @@ class ManagerShopPageUpdateController extends Controller
         return view('manager.shop_list',compact('shops'));
     }
 
-   // public function shopModify (Request $request)
-   // {
-     //   $areas = Area::all();
-     //   $genres = genre::all();
-      //  $shop = Shop::find($request->id);
-     //   $data = [
-      //      'item' => $shop,
-     //       'areas' => $areas,
-      //      'genres' => $genres,
-     //   ];
-     //   return view('manager.shop_modify',$data);
-
-    //}
-
-public function shopModify (Shop $shop)
+    public function shopModify (Shop $shop)
     {
         $areas = Area::all();
         $genres = genre::all();
@@ -50,16 +36,12 @@ public function shopModify (Shop $shop)
             'areas' => $areas,
             'genres' => $genres,
         ];
+
         return view('manager.shop_modify',$data);
     }
 
-
-
-
-
     public function updateConfirm (ShopRequest $request)
     {
-
         if($request->new_image_url === null){
             $shop_modify = $request->only(['id','name','image_url','area_id','genre_id','description']);
 

@@ -21,21 +21,10 @@ class MenuController extends Controller
         return view('guest_menu');
     }
 
-    //public function register()
-    //{
-        //return view('auth/register');
-    //}
-
     public function thanksIndex()
     {
         return view('register_thanks');
     }
-
-
-    //public function login()
-    //{
-      //  return view('auth/login');
-    //}
 
     public function memberIndex()
     {
@@ -44,20 +33,19 @@ class MenuController extends Controller
 
     public function myPageIndex(Request $request)
     {
+        $user = Auth::user();
+        $user_id = Auth::id();
 
-    $user = Auth::user();
-    $user_id = Auth::id();
+        $today = Carbon::now()->format('Y-m-d');
+        $before_threeMonth = Carbon::now()->subMonth(3);
+        $reservations = Reservation::where('user_id',$user_id)
+        ->where('date','>=',$today)->oldest('date')->get();
+        $reservationPasts = Reservation::where('user_id',$user_id)
+        ->where('date','>',$before_threeMonth)
+        ->where('date','<',$today)->latest('date')->get();
 
-    $today = Carbon::now()->format('Y-m-d');
-    $before_threeMonth = Carbon::now()->subMonth(3);
-    $reservations = Reservation::where('user_id',$user_id)
-    ->where('date','>=',$today)->oldest('date')->get();
-    $reservationPasts = Reservation::where('user_id',$user_id)
-    ->where('date','>',$before_threeMonth)
-    ->where('date','<',$today)->latest('date')->get();
-
-    $shops = $user->bookmark_shops()->get();
-    return view('my_page',compact('user','reservations','reservationPasts','shops','today'));
+        $shops = $user->bookmark_shops()->get();
+        return view('my_page',compact('user','reservations','reservationPasts','shops','today'));
     }
 
 }

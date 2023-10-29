@@ -79,7 +79,6 @@ class ShopController extends Controller
       }
    }
 
-
    public function detail(Shop $shop)
    {
       $data = [

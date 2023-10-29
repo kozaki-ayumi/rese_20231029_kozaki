@@ -15,6 +15,11 @@
               <i class="fa-solid fa-user"></i>
                 <input id="email"  type="email" name="email" :value="old('email')" placeholder="Email" required />
         </div>
+        <div class="form__error">
+            @error('email')
+            {{ $message }}
+            @enderror
+        </div>
       </div>
       <div class="registration__btn">
         <button class="registration__btn-content">登録</button>
